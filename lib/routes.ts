@@ -4,6 +4,8 @@
  * - 세부 지역 개별 URL은 존재하지 않으며 만들지 않는다.
  * - 검색/태그/중복/빈 페이지는 포함하지 않는다.
  */
+import { allAreaPaths } from "./serviceAreas";
+
 export type RouteEntry = {
   path: string;
   priority: number;
@@ -82,4 +84,9 @@ export const ROUTES: RouteEntry[] = [
   { path: "/privacy/", priority: 0.4, changeFrequency: "yearly" },
   { path: "/terms/", priority: 0.4, changeFrequency: "yearly" },
   { path: "/business-info/", priority: 0.4, changeFrequency: "yearly" },
+
+  // 지역 세부 권역 (광역 4개 × 권역 4개 = 16개 고유 콘텐츠 페이지)
+  ...allAreaPaths().map(
+    (path): RouteEntry => ({ path, priority: 0.75, changeFrequency: "monthly" })
+  ),
 ];

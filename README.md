@@ -38,7 +38,8 @@ npm run start
 /about/{brand,policy,service-area-policy}
 /services/{visit-massage,condition-care,muscle-relax-care,aroma-care,before-use}
 /service-area/                     지역 인덱스
-/service-area/{seoul,gyeonggi,incheon,busan}   광역 4개만 (FAQPage·Breadcrumb)
+/service-area/{seoul,gyeonggi,incheon,busan}/             광역 4개 (FAQPage·Breadcrumb)
+/service-area/{region}/{area}/     권역 16개 개별 페이지 (각 고유 콘텐츠·FAQPage·Breadcrumb)
 /booking/  /price/  /booking/{same-day,time,cancel-policy,payment}
 /safety/{hygiene,customer-protection,prohibited-services}
 /magazine/ + 6개 카테고리 + 10개 글 (Article 구조화 데이터)
@@ -46,17 +47,19 @@ npm run start
 sitemap.xml  robots.txt  (Next metadata route로 자동 생성)
 ```
 
-## 도어웨이 스팸 방지 (핵심 설계 원칙)
+## 지역 구조 & 도어웨이 스팸 방지 (핵심 설계 원칙)
 
-- 지역 페이지는 **서울·경기·인천·부산 4개만** 생성합니다.
-- 강남·성남·수원·송도·해운대 등 **세부 지역은 개별 URL을 만들지 않고**,
-  각 광역 지역 페이지 내부의 **H2 권역 섹션 + 내부 앵커**(`#gangnam`, `#south` 등)로만
-  처리합니다.
-- 드롭다운 메뉴의 세부 지역 항목도 모두 내부 앵커로 연결됩니다.
-- 모든 페이지 본문은 지역명만 바꾼 복제 문단 없이 **고유하게** 작성되었습니다.
+- 광역 4개(서울·경기·인천·부산) + **권역 16개**(광역당 4권역)로 구성합니다.
+- 권역 페이지는 `/service-area/{region}/{area}/` 경로의 **고유 콘텐츠 개별 페이지**입니다.
+  콘텐츠는 `lib/serviceAreas.ts` 에 권역별로 분리되어 있으며, 각 권역은 포함 지역·이동
+  특성·추천 케어·FAQ를 **서로 다르게** 작성해 지역명만 바꾼 복제(도어웨이)를 피했습니다.
+- 동/구 단위(강남구, 성남시 등)로 더 잘게 쪼갠 도어웨이성 페이지는 **만들지 않습니다.**
+- 권역 페이지는 동적 라우트 `app/service-area/{region}/[area]/page.tsx` +
+  `generateStaticParams` 로 정적 생성(SSG)됩니다.
 
-세부 지역 페이지를 추후 확장하려면 `lib/navigation.ts` / `lib/routes.ts` 구조를
-그대로 따르되, 각 페이지가 고유한 가치를 담을 수 있을 때에만 추가하세요.
+권역을 더 추가/세분화하려면 `lib/serviceAreas.ts` 에 고유 콘텐츠를 추가하면
+`generateStaticParams`·sitemap·네비게이션에 자동 반영됩니다. **단, 각 페이지가 고유한
+가치를 담을 수 있을 때에만** 추가하세요(얇은 중복 페이지는 SEO에 해롭습니다).
 
 ## SEO 기술 요소
 

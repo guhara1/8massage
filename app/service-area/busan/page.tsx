@@ -57,16 +57,19 @@ export default function BusanPage() {
       />
 
       <Container className="py-12">
-        <nav aria-label="권역 바로가기" className="mb-10 flex flex-wrap gap-2">
-          {anchors.map((a) => (
-            <a
-              key={a.id}
-              href={`#${a.id}`}
-              className="rounded-full border border-navy-100 bg-white px-4 py-2 text-sm font-medium text-navy-800 shadow-card transition-colors hover:border-gold-300 hover:text-gold-700"
-            >
-              {a.label}
-            </a>
-          ))}
+        <nav aria-label="권역별 상세 안내" className="mb-10">
+          <p className="mb-3 text-sm font-semibold text-navy-900">권역별 상세 페이지</p>
+          <div className="flex flex-wrap gap-2">
+            {anchors.map((a) => (
+              <a
+                key={a.id}
+                href={`/service-area/busan/${a.id}/`}
+                className="rounded-full border border-navy-100 bg-white px-4 py-2 text-sm font-medium text-navy-800 shadow-card transition-colors hover:border-gold-300 hover:text-gold-700"
+              >
+                {a.label} →
+              </a>
+            ))}
+          </div>
         </nav>
 
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem]">

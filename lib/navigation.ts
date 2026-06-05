@@ -1,7 +1,7 @@
 export type NavChild = {
   label: string;
   href: string;
-  /** 내부 앵커 하위 링크(세부 지역 등). 별도 페이지가 아님을 분명히 한다. */
+  /** 세부 권역 하위 링크. 각 권역은 고유 콘텐츠를 가진 개별 페이지다. */
   anchors?: { label: string; href: string }[];
 };
 
@@ -13,8 +13,8 @@ export type NavItem = {
 
 /**
  * 상단 메뉴 구조.
- * 세부 지역(강남·성남·송도·해운대 등)은 별도 페이지가 아니라
- * 각 광역 지역 페이지 내부 앵커(#...)로만 연결한다. (도어웨이 스팸 방지)
+ * 세부 권역(서울 강남권, 경기 남부, 인천 송도권, 부산 해운대권 등)은
+ * 각 광역 지역 아래의 고유 콘텐츠 개별 페이지(/service-area/{region}/{area}/)로 연결한다.
  */
 export const NAV: NavItem[] = [
   {
@@ -48,40 +48,40 @@ export const NAV: NavItem[] = [
         label: "서울 출장마사지",
         href: "/service-area/seoul/",
         anchors: [
-          { label: "서울 강남권(강남·서초·송파)", href: "/service-area/seoul/#gangnam" },
-          { label: "서울 도심권(용산·중구·종로)", href: "/service-area/seoul/#central" },
-          { label: "서울 서북권(마포·은평·서대문)", href: "/service-area/seoul/#northwest" },
-          { label: "서울 동북권(노원·도봉·강북)", href: "/service-area/seoul/#northeast" },
+          { label: "서울 강남권(강남·서초·송파)", href: "/service-area/seoul/gangnam/" },
+          { label: "서울 도심권(용산·중구·종로)", href: "/service-area/seoul/central/" },
+          { label: "서울 서북권(마포·은평·서대문)", href: "/service-area/seoul/northwest/" },
+          { label: "서울 동북권(노원·도봉·강북)", href: "/service-area/seoul/northeast/" },
         ],
       },
       {
         label: "경기 출장마사지",
         href: "/service-area/gyeonggi/",
         anchors: [
-          { label: "경기 남부(성남·분당·수원)", href: "/service-area/gyeonggi/#south" },
-          { label: "경기 서부(부천·안산·시흥)", href: "/service-area/gyeonggi/#west" },
-          { label: "경기 동부(하남·남양주·구리)", href: "/service-area/gyeonggi/#east" },
-          { label: "경기 북부(고양·의정부·파주)", href: "/service-area/gyeonggi/#north" },
+          { label: "경기 남부(성남·분당·수원)", href: "/service-area/gyeonggi/south/" },
+          { label: "경기 서부(부천·안산·시흥)", href: "/service-area/gyeonggi/west/" },
+          { label: "경기 동부(하남·남양주·구리)", href: "/service-area/gyeonggi/east/" },
+          { label: "경기 북부(고양·의정부·파주)", href: "/service-area/gyeonggi/north/" },
         ],
       },
       {
         label: "인천 출장마사지",
         href: "/service-area/incheon/",
         anchors: [
-          { label: "인천 중심권(남동·미추홀·구월)", href: "/service-area/incheon/#central" },
-          { label: "인천 송도권(송도·연수·논현)", href: "/service-area/incheon/#songdo" },
-          { label: "인천 서북권(청라·서구·검단)", href: "/service-area/incheon/#northwest" },
-          { label: "인천 북부권(부평·계양)", href: "/service-area/incheon/#north" },
+          { label: "인천 중심권(남동·미추홀·구월)", href: "/service-area/incheon/central/" },
+          { label: "인천 송도권(송도·연수·논현)", href: "/service-area/incheon/songdo/" },
+          { label: "인천 서북권(청라·서구·검단)", href: "/service-area/incheon/northwest/" },
+          { label: "인천 북부권(부평·계양)", href: "/service-area/incheon/north/" },
         ],
       },
       {
         label: "부산 출장마사지",
         href: "/service-area/busan/",
         anchors: [
-          { label: "부산 해운대권(해운대·수영·센텀)", href: "/service-area/busan/#haeundae" },
-          { label: "부산 중심권(서면·부산진·동래)", href: "/service-area/busan/#central" },
-          { label: "부산 남부권(남구·중구·영도)", href: "/service-area/busan/#south" },
-          { label: "부산 서부권(사하·강서·사상)", href: "/service-area/busan/#west" },
+          { label: "부산 해운대권(해운대·수영·센텀)", href: "/service-area/busan/haeundae/" },
+          { label: "부산 중심권(서면·부산진·동래)", href: "/service-area/busan/central/" },
+          { label: "부산 남부권(남구·중구·영도)", href: "/service-area/busan/south/" },
+          { label: "부산 서부권(사하·강서·사상)", href: "/service-area/busan/west/" },
         ],
       },
     ],
