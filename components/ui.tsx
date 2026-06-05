@@ -244,7 +244,7 @@ export function PageHero({
 
 export function Prose({ children }: { children: ReactNode }) {
   return (
-    <div className="space-y-4 text-[15px] leading-[1.85] text-ink-700 sm:text-base [&_h2]:mt-12 [&_h2]:scroll-mt-28 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:tracking-tight [&_h2]:text-navy-900 sm:[&_h2]:text-2xl [&_h3]:mt-7 [&_h3]:text-lg [&_h3]:font-bold [&_h3]:text-navy-900 [&_strong]:font-semibold [&_strong]:text-navy-800 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5 [&_ul]:marker:text-gold-500 [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-5 [&_ol]:marker:font-semibold [&_ol]:marker:text-gold-600 [&_a]:font-medium [&_a]:text-navy-800 [&_a]:underline [&_a]:decoration-gold-300 [&_a]:underline-offset-4">
+    <div className="editorial-count max-w-[42rem] space-y-5 text-[16px] leading-[1.9] text-ink-700 sm:text-[17px] [&_h2]:mt-14 [&_h2]:scroll-mt-28 [&_h2]:text-[1.6rem] [&_h2]:font-bold [&_h2]:leading-tight [&_h2]:tracking-tighter [&_h2]:text-navy-900 sm:[&_h2]:text-[2rem] [&_h2:first-child]:mt-0 [&_h3]:mt-8 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-navy-900 [&_strong]:font-semibold [&_strong]:text-navy-800 [&_ul]:list-disc [&_ul]:space-y-2.5 [&_ul]:pl-5 [&_ul]:marker:text-gold-500 [&_ol]:list-decimal [&_ol]:space-y-2.5 [&_ol]:pl-5 [&_ol]:marker:font-semibold [&_ol]:marker:text-gold-600 [&_a]:font-medium [&_a]:text-navy-800 [&_a]:underline [&_a]:decoration-gold-400 [&_a]:decoration-1 [&_a]:underline-offset-4 [&_a:hover]:decoration-gold-600">
       {children}
     </div>
   );

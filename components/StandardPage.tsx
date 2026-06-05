@@ -41,18 +41,23 @@ export default function StandardPage({
         description={description}
       />
 
-      <Container className="py-12">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem]">
+      <Container className="py-14 sm:py-20">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_17rem] lg:gap-16">
           <article>
             <Prose>{children}</Prose>
           </article>
           {aside ? (
-            <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">{aside}</aside>
+            <aside className="space-y-5 lg:sticky lg:top-24 lg:self-start">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-600">
+                관련 안내
+              </p>
+              {aside}
+            </aside>
           ) : null}
         </div>
 
         {faqs && faqs.length > 0 ? (
-          <div className="mt-14">
+          <div className="mt-20 max-w-[46rem]">
             <JsonLd data={faqLd(faqs)} />
             <SectionHeading title={faqHeading} />
             <FAQAccordion items={faqs} />
@@ -60,7 +65,7 @@ export default function StandardPage({
         ) : null}
 
         {cta ? (
-          <div className="mt-14">
+          <div className="mt-20">
             <ContactCTA />
           </div>
         ) : null}

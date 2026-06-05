@@ -30,7 +30,7 @@ export default function AreaPage({ region, area }: { region: Region; area: Area 
 
       <Container className="py-12">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem]">
-          <article className="space-y-10 text-base leading-relaxed text-ink-700">
+          <article className="editorial-count max-w-[42rem] space-y-12 text-[16px] leading-[1.9] text-ink-700 sm:text-[17px]">
             {area.sections.map((s) => (
               <section key={s.h2}>
                 <SectionHeading as="h2" title={s.h2} />

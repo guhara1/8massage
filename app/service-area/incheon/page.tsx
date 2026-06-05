@@ -73,7 +73,7 @@ export default function IncheonPage() {
         </nav>
 
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem]">
-          <article className="space-y-10 text-base leading-relaxed text-ink-700">
+          <article className="editorial-count max-w-[42rem] space-y-12 text-[16px] leading-[1.9] text-ink-700 sm:text-[17px]">
             <section>
               <SectionHeading as="h2" title="인천 출장마사지 운영 안내" />
               <p>
