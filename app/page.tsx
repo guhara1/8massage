@@ -19,7 +19,7 @@ import { pageMetadata, organizationLd, websiteLd, faqLd } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "출장마사지 안내 | 서울·경기·인천·부산 방문 케어 8 마사지",
   description:
-    "8 마사지는 서울, 경기, 인천, 부산 지역 출장마사지 정보를 안내합니다. 예약 절차, 가능 지역, 요금 기준, 위생 관리, 제공하지 않는 서비스까지 투명하게 확인하세요.",
+    "서울·경기·인천·부산 출장마사지 안내. 예약 절차, 가능 지역, 요금·위생 기준까지 투명하게 확인하세요.",
   path: "/",
 });
 
