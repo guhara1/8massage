@@ -3,6 +3,8 @@ name: IndexNow ping
 # 글/콘텐츠가 바뀌어 푸시되면 Cloudflare 배포 완료를 기다린 뒤
 # Bing·Naver 등에 즉시 색인을 통보한다.
 on:
+  # GitHub Actions 탭에서 버튼으로 수동 실행 가능
+  workflow_dispatch:
   push:
     branches:
       - claude/charming-keller-lbMVo
