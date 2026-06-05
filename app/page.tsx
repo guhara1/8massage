@@ -4,6 +4,7 @@ import Container from "@/components/Container";
 import SectionHeading from "@/components/SectionHeading";
 import JsonLd from "@/components/JsonLd";
 import FAQAccordion from "@/components/FAQAccordion";
+import Reveal from "@/components/Reveal";
 import {
   ButtonLink,
   RegionCard,
@@ -144,67 +145,95 @@ const faqs = [
   },
 ];
 
+const trust = [
+  { t: "4개 광역 권역", d: "서울·경기·인천·부산" },
+  { t: "투명한 요금", d: "숨은 비용 없음" },
+  { t: "일관된 위생 기준", d: "방문 전후 관리" },
+  { t: "건전한 케어", d: "합법·정직 운영" },
+];
+
 export default function HomePage() {
   return (
     <>
       <JsonLd data={[organizationLd(), websiteLd(), faqLd(faqs)]} />
 
       {/* 1. Hero */}
-      <section className="relative overflow-hidden border-b border-navy-100 bg-gradient-to-b from-navy-50 to-white">
-        <Container className="py-16 sm:py-20 lg:py-24">
-          <div className="max-w-3xl">
-            <p className="mb-3 inline-flex items-center rounded-full bg-navy-800 px-3 py-1 text-xs font-semibold text-gold-400">
+      <section className="relative overflow-hidden bg-navy-900 bg-hero-radial">
+        <div className="bg-noise absolute inset-0 opacity-50" aria-hidden="true" />
+        <span className="absolute inset-x-0 bottom-0 h-px bg-gold-line" aria-hidden="true" />
+        <Container className="relative py-20 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="animate-fade-in mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium text-gold-200">
+              <span className="h-1.5 w-1.5 rounded-full bg-gold-400" aria-hidden="true" />
               건전한 방문 케어 안내 · 8 마사지
             </p>
-            <h1 className="text-3xl font-bold leading-tight tracking-tight text-ink-900 sm:text-4xl lg:text-5xl">
-              서울·경기·인천·부산 출장마사지 안내
+            <h1 className="animate-fade-up text-3xl font-bold leading-[1.2] tracking-tighter text-white sm:text-5xl lg:text-6xl">
+              서울·경기·인천·부산
+              <br />
+              <span className="text-gradient-gold">출장마사지 안내</span>
             </h1>
-            <p className="mt-5 text-lg leading-relaxed text-ink-700">
-              8 마사지는 원하는 지역과 시간에 맞춰 방문 케어 정보를 확인할 수 있는 안내
-              사이트입니다. 예약 절차와 가능 지역, 요금 기준, 위생 관리, 그리고 제공하지 않는
-              서비스까지 과장 없이 투명하게 안내합니다.
+            <p className="animate-fade-up mx-auto mt-6 max-w-xl text-base leading-relaxed text-navy-100/80 sm:text-lg">
+              원하는 지역과 시간에 맞춰 방문 케어 정보를 확인하세요. 예약 절차, 가능 지역, 요금
+              기준, 위생 관리까지 과장 없이 투명하게 안내합니다.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/service-area/" variant="primary">
+            <div className="animate-fade-up mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <ButtonLink href="/service-area/" variant="secondary">
                 지역 가능 여부 확인하기
               </ButtonLink>
-              <ButtonLink href="/booking-inquiry/" variant="secondary">
+              <ButtonLink href="/booking-inquiry/" variant="light">
                 예약 문의하기
               </ButtonLink>
             </div>
+          </div>
+
+          <div className="animate-fade-up mx-auto mt-14 grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-4">
+            {trust.map((item) => (
+              <div
+                key={item.t}
+                className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 text-center backdrop-blur-sm"
+              >
+                <p className="text-sm font-bold text-white sm:text-base">{item.t}</p>
+                <p className="mt-1 text-xs text-navy-100/60">{item.d}</p>
+              </div>
+            ))}
           </div>
         </Container>
       </section>
 
       {/* 2. 8 마사지 소개 */}
-      <Container className="py-16">
+      <Container className="py-16 sm:py-20">
         <SectionHeading
           eyebrow="8 마사지 소개"
           title="과장 없는 정보, 투명한 예약 안내"
           description="8 마사지는 합법적이고 건전한 방문 케어 정보를 제공하는 안내 사이트입니다."
         />
         <div className="grid gap-6 lg:grid-cols-3">
-          <p className="text-base leading-relaxed text-ink-700 lg:col-span-2">
-            8 마사지는 바쁜 일상 속에서 편안한 휴식과 컨디션 관리를 고민하는 분들을 위해, 방문
-            케어와 관련된 정보를 한곳에 정리한 안내 사이트입니다. 우리는 화려한 광고 문구나 과장된
-            효능 대신, 실제로 예약 여부를 판단하는 데 필요한 정보—가능 지역, 진행 흐름, 요금이
-            정해지는 기준, 위생 관리 방식, 그리고 제공하지 않는 서비스—를 분명하게 밝히는 것을
-            가장 중요하게 생각합니다. 처음 이용하시는 분도 어떤 과정으로 진행되는지 미리 이해하고
-            안심하고 문의하실 수 있도록, 모든 안내를 정중하고 투명한 언어로 작성했습니다.
-          </p>
-          <SafetyNoticeBox title="우리가 지키는 원칙">
-            <ul className="list-disc space-y-1 pl-4">
-              <li>과장 없는 정보 제공</li>
-              <li>투명한 예약·요금 안내</li>
-              <li>일관된 위생 관리 기준</li>
-              <li>건전한 방문 케어만 안내</li>
-            </ul>
-          </SafetyNoticeBox>
+          <Reveal className="lg:col-span-2">
+            <p className="text-base leading-[1.85] text-ink-700">
+              8 마사지는 바쁜 일상 속에서 편안한 휴식과 컨디션 관리를 고민하는 분들을 위해, 방문
+              케어와 관련된 정보를 한곳에 정리한 안내 사이트입니다. 우리는 화려한 광고 문구나
+              과장된 효능 대신, 실제로 예약 여부를 판단하는 데 필요한 정보—가능 지역, 진행 흐름,
+              요금이 정해지는 기준, 위생 관리 방식, 그리고 제공하지 않는 서비스—를 분명하게 밝히는
+              것을 가장 중요하게 생각합니다. 처음 이용하시는 분도 어떤 과정으로 진행되는지 미리
+              이해하고 안심하고 문의하실 수 있도록, 모든 안내를 정중하고 투명한 언어로
+              작성했습니다.
+            </p>
+          </Reveal>
+          <Reveal delay={100}>
+            <SafetyNoticeBox title="우리가 지키는 원칙">
+              <ul className="list-disc space-y-1 pl-4 marker:text-gold-500">
+                <li>과장 없는 정보 제공</li>
+                <li>투명한 예약·요금 안내</li>
+                <li>일관된 위생 관리 기준</li>
+                <li>건전한 방문 케어만 안내</li>
+              </ul>
+            </SafetyNoticeBox>
+          </Reveal>
         </div>
       </Container>
 
       {/* 3. 서비스 안내 */}
-      <section className="bg-navy-50/40 py-16">
+      <section className="bg-cream-100/60 py-16 sm:py-20">
         <Container>
           <SectionHeading
             eyebrow="출장마사지 서비스 안내"
@@ -212,29 +241,33 @@ export default function HomePage() {
             description="출장마사지는 정해진 공간으로 직접 찾아가 휴식과 컨디션 관리를 돕는 방문 케어입니다. 아래 항목에서 각 서비스를 자세히 확인할 수 있습니다."
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((s) => (
-              <ServiceCard key={s.href} {...s} />
+            {services.map((s, i) => (
+              <Reveal key={s.href} delay={i * 60}>
+                <ServiceCard {...s} />
+              </Reveal>
             ))}
           </div>
         </Container>
       </section>
 
       {/* 4. 지역별 안내 */}
-      <Container className="py-16">
+      <Container className="py-16 sm:py-20">
         <SectionHeading
           eyebrow="지역별 출장마사지 안내"
           title="우리 동네는 방문 가능할까요?"
           description="현재 서울·경기·인천·부산 4개 권역을 중심으로 안내합니다. 각 지역 페이지에서 권역별 가능 범위를 확인하세요."
         />
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {regions.map((r) => (
-            <RegionCard key={r.href} {...r} />
+          {regions.map((r, i) => (
+            <Reveal key={r.href} delay={i * 60}>
+              <RegionCard {...r} />
+            </Reveal>
           ))}
         </div>
       </Container>
 
       {/* 5. 예약 절차 */}
-      <section className="bg-navy-50/40 py-16">
+      <section className="bg-cream-100/60 py-16 sm:py-20">
         <Container>
           <SectionHeading
             eyebrow="예약 절차"
@@ -242,18 +275,17 @@ export default function HomePage() {
             description="복잡하지 않게, 그러나 빠짐없이 확인하며 진행합니다."
           />
           <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {bookingSteps.map((step) => (
-              <li
-                key={step.n}
-                className="rounded-xl border border-navy-100 bg-white p-5"
-              >
-                <span className="text-sm font-bold text-gold-500">{step.n}</span>
-                <h3 className="mt-1 text-base font-semibold text-navy-800">{step.t}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-ink-700">{step.d}</p>
-              </li>
+            {bookingSteps.map((step, i) => (
+              <Reveal as="li" key={step.n} delay={i * 50}>
+                <div className="h-full rounded-3xl border border-navy-100 bg-white p-6 shadow-card">
+                  <span className="text-gradient-gold text-2xl font-bold tracking-tighter">{step.n}</span>
+                  <h3 className="mt-1.5 text-base font-bold text-navy-900">{step.t}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-ink-700">{step.d}</p>
+                </div>
+              </Reveal>
             ))}
           </ol>
-          <div className="mt-6">
+          <div className="mt-8">
             <ButtonLink href="/booking/" variant="ghost">
               예약 방법 자세히 보기
             </ButtonLink>
@@ -262,29 +294,28 @@ export default function HomePage() {
       </section>
 
       {/* 6. 요금 안내 요약 */}
-      <Container className="py-16">
-        <div className="grid items-center gap-8 rounded-2xl border border-navy-100 bg-white p-8 lg:grid-cols-2">
-          <div>
-            <SectionHeading
-              eyebrow="요금 안내"
-              title="요금은 상황에 따라 달라집니다"
-            />
-            <p className="text-base leading-relaxed text-ink-700">
-              요금은 선택하는 서비스 종류와 진행 시간, 방문 지역, 예약 시간대, 이동 거리 등에 따라
-              달라질 수 있습니다. 8 마사지는 상담 단계에서 기준을 명확히 안내하며, 안내되지 않은
-              추가 비용이 발생하지 않도록 합니다.
-            </p>
+      <Container className="py-16 sm:py-20">
+        <Reveal>
+          <div className="grid items-center gap-8 overflow-hidden rounded-4xl border border-navy-100 bg-white p-8 shadow-card sm:p-10 lg:grid-cols-2">
+            <div>
+              <SectionHeading eyebrow="요금 안내" title="요금은 상황에 따라 달라집니다" />
+              <p className="text-base leading-relaxed text-ink-700">
+                요금은 선택하는 서비스 종류와 진행 시간, 방문 지역, 예약 시간대, 이동 거리 등에 따라
+                달라질 수 있습니다. 8 마사지는 상담 단계에서 기준을 명확히 안내하며, 안내되지 않은
+                추가 비용이 발생하지 않도록 합니다.
+              </p>
+            </div>
+            <div className="lg:text-right">
+              <ButtonLink href="/price/" variant="primary">
+                상세 요금 안내 보기
+              </ButtonLink>
+            </div>
           </div>
-          <div className="lg:text-right">
-            <ButtonLink href="/price/" variant="primary">
-              상세 요금 안내 보기
-            </ButtonLink>
-          </div>
-        </div>
+        </Reveal>
       </Container>
 
       {/* 7. 위생·안전 */}
-      <section className="bg-navy-50/40 py-16">
+      <section className="bg-cream-100/60 py-16 sm:py-20">
         <Container>
           <SectionHeading
             eyebrow="위생·안전 기준"
@@ -297,50 +328,55 @@ export default function HomePage() {
               { t: "도구 관리", d: "사용하는 용품을 청결하게 관리하고 점검합니다." },
               { t: "고객 공간 존중", d: "고객의 생활 공간과 사생활을 존중합니다." },
               { t: "개인정보 보호", d: "예약 과정에서 받은 정보를 안전하게 다룹니다." },
-              {
-                t: "제공하지 않는 서비스",
-                d: "성적·불법 요청은 일절 제공하지 않습니다.",
-              },
-            ].map((item) => (
-              <div key={item.t} className="rounded-xl border border-navy-100 bg-white p-5">
-                <h3 className="text-base font-semibold text-navy-800">{item.t}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-ink-700">{item.d}</p>
-              </div>
+              { t: "제공하지 않는 서비스", d: "성적·불법 요청은 일절 제공하지 않습니다." },
+            ].map((item, i) => (
+              <Reveal key={item.t} delay={i * 50}>
+                <div className="h-full rounded-3xl border border-navy-100 bg-white p-6 shadow-card">
+                  <h3 className="text-base font-bold text-navy-900">{item.t}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-ink-700">{item.d}</p>
+                </div>
+              </Reveal>
             ))}
-            <Link
-              href="/safety/prohibited-services/"
-              className="flex items-center justify-center rounded-xl border border-dashed border-gold-400 bg-gold-100/30 p-5 text-sm font-semibold text-navy-800 hover:bg-gold-100/60"
-            >
-              제공하지 않는 서비스 안내 보기 →
-            </Link>
+            <Reveal delay={250}>
+              <Link
+                href="/safety/prohibited-services/"
+                className="flex h-full items-center justify-center rounded-3xl border border-dashed border-gold-300 bg-gold-100/40 p-6 text-sm font-semibold text-navy-900 transition-colors hover:bg-gold-100/70"
+              >
+                제공하지 않는 서비스 안내 보기 →
+              </Link>
+            </Reveal>
           </div>
         </Container>
       </section>
 
       {/* 8. 매거진 추천 */}
-      <Container className="py-16">
+      <Container className="py-16 sm:py-20">
         <SectionHeading
           eyebrow="매거진 추천 글"
           title="읽어두면 도움이 되는 정보"
           description="예약 전에 알아두면 좋은 가이드와 체크리스트를 모았습니다."
         />
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {magazine.map((m) => (
-            <MagazineCard key={m.href} {...m} />
+          {magazine.map((m, i) => (
+            <Reveal key={m.href} delay={i * 60}>
+              <MagazineCard {...m} />
+            </Reveal>
           ))}
         </div>
       </Container>
 
       {/* 9. FAQ */}
-      <section className="bg-navy-50/40 py-16">
+      <section className="bg-cream-100/60 py-16 sm:py-20">
         <Container>
           <SectionHeading
             eyebrow="자주 묻는 질문"
             title="예약 전 궁금한 점"
             description="가장 많이 문의해 주시는 내용을 정리했습니다."
           />
-          <FAQAccordion items={faqs} />
-          <div className="mt-6">
+          <Reveal>
+            <FAQAccordion items={faqs} />
+          </Reveal>
+          <div className="mt-7">
             <ButtonLink href="/faq/" variant="ghost">
               전체 FAQ 보기
             </ButtonLink>
@@ -349,8 +385,10 @@ export default function HomePage() {
       </section>
 
       {/* 10. 하단 CTA */}
-      <Container className="py-16">
-        <ContactCTA />
+      <Container className="py-16 sm:py-20">
+        <Reveal>
+          <ContactCTA />
+        </Reveal>
       </Container>
     </>
   );

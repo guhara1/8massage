@@ -12,21 +12,23 @@ export function ButtonLink({
 }: {
   href: string;
   children: ReactNode;
-  variant?: "primary" | "secondary" | "ghost";
+  variant?: "primary" | "secondary" | "ghost" | "light";
   className?: string;
 }) {
   const styles = {
     primary:
-      "bg-navy-800 text-white hover:bg-navy-700 focus-visible:outline-navy-800",
+      "bg-gradient-to-br from-navy-700 to-navy-900 text-white shadow-card hover:-translate-y-0.5 focus-visible:outline-navy-800",
     secondary:
-      "bg-gold-500 text-navy-900 hover:bg-gold-400 focus-visible:outline-gold-500",
+      "bg-gradient-to-br from-gold-400 to-gold-600 text-navy-900 shadow-glow hover:-translate-y-0.5 focus-visible:outline-gold-500",
     ghost:
-      "border border-navy-100 bg-white text-navy-800 hover:bg-navy-50 focus-visible:outline-navy-800",
+      "border border-navy-200/70 bg-white/70 text-navy-900 hover:bg-white hover:-translate-y-0.5 focus-visible:outline-navy-800",
+    light:
+      "border border-white/25 bg-white/10 text-white backdrop-blur hover:bg-white/20 hover:-translate-y-0.5 focus-visible:outline-white",
   }[variant];
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-semibold shadow-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${styles} ${className}`}
+      className={`group inline-flex items-center justify-center gap-1.5 rounded-2xl px-6 py-3.5 text-sm font-semibold transition-all duration-300 ease-premium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${styles} ${className}`}
     >
       {children}
     </Link>
@@ -47,27 +49,27 @@ export function RegionCard({
   areas: string[];
 }) {
   return (
-    <article className="flex h-full flex-col rounded-2xl border border-navy-100 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
-      <h3 className="text-lg font-semibold text-navy-800">{region}</h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-700">{description}</p>
-      <ul className="mt-4 flex flex-wrap gap-1.5">
-        {areas.map((a) => (
-          <li
-            key={a}
-            className="rounded-full bg-navy-50 px-2.5 py-1 text-xs text-navy-700"
-          >
-            {a}
-          </li>
-        ))}
-      </ul>
-      <Link
-        href={href}
-        className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-gold-600 hover:text-gold-500"
-      >
-        {region} 안내 보기
-        <span aria-hidden="true">→</span>
-      </Link>
-    </article>
+    <Link href={href} className="group block h-full">
+      <article className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-navy-100 bg-white p-6 shadow-card transition-all duration-300 ease-premium hover:-translate-y-1 hover:border-gold-300 hover:shadow-lift">
+        <span className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-gold-300 to-gold-600 transition-transform duration-300 group-hover:scale-x-100" />
+        <h3 className="text-lg font-bold tracking-tight text-navy-900">{region}</h3>
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-700">{description}</p>
+        <ul className="mt-4 flex flex-wrap gap-1.5">
+          {areas.map((a) => (
+            <li
+              key={a}
+              className="rounded-full bg-navy-50 px-2.5 py-1 text-xs font-medium text-navy-700"
+            >
+              {a}
+            </li>
+          ))}
+        </ul>
+        <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-gold-600">
+          {region} 안내 보기
+          <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+        </span>
+      </article>
+    </Link>
   );
 }
 
@@ -81,17 +83,16 @@ export function ServiceCard({
   description: string;
 }) {
   return (
-    <article className="flex h-full flex-col rounded-2xl border border-navy-100 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
-      <h3 className="text-lg font-semibold text-navy-800">{title}</h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-700">{description}</p>
-      <Link
-        href={href}
-        className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-gold-600 hover:text-gold-500"
-      >
-        {title} 보기
-        <span aria-hidden="true">→</span>
-      </Link>
-    </article>
+    <Link href={href} className="group block h-full">
+      <article className="flex h-full flex-col rounded-3xl border border-navy-100 bg-white p-6 shadow-card transition-all duration-300 ease-premium hover:-translate-y-1 hover:border-gold-300 hover:shadow-lift">
+        <h3 className="text-lg font-bold tracking-tight text-navy-900">{title}</h3>
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-700">{description}</p>
+        <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-gold-600">
+          {title} 보기
+          <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+        </span>
+      </article>
+    </Link>
   );
 }
 
@@ -107,26 +108,23 @@ export function MagazineCard({
   category?: string;
 }) {
   return (
-    <article className="flex h-full flex-col rounded-2xl border border-navy-100 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
-      {category ? (
-        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-gold-600">
-          {category}
-        </p>
-      ) : null}
-      <h3 className="text-base font-semibold leading-snug text-navy-800">
-        <Link href={href} className="hover:text-gold-600">
+    <Link href={href} className="group block h-full">
+      <article className="flex h-full flex-col rounded-3xl border border-navy-100 bg-white p-6 shadow-card transition-all duration-300 ease-premium hover:-translate-y-1 hover:border-gold-300 hover:shadow-lift">
+        {category ? (
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-gold-600">
+            {category}
+          </p>
+        ) : null}
+        <h3 className="text-base font-bold leading-snug text-navy-900 group-hover:text-navy-700">
           {title}
-        </Link>
-      </h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-700">{excerpt}</p>
-      <Link
-        href={href}
-        className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-gold-600 hover:text-gold-500"
-      >
-        글 읽기
-        <span aria-hidden="true">→</span>
-      </Link>
-    </article>
+        </h3>
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-700">{excerpt}</p>
+        <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-gold-600">
+          글 읽기
+          <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+        </span>
+      </article>
+    </Link>
   );
 }
 
@@ -142,9 +140,12 @@ export function InternalLinkCard({
   return (
     <Link
       href={href}
-      className="block rounded-xl border border-navy-100 bg-white p-4 transition-colors hover:border-gold-400 hover:bg-navy-50/40"
+      className="group block rounded-2xl border border-navy-100 bg-white p-4 transition-all duration-300 ease-premium hover:-translate-y-0.5 hover:border-gold-300 hover:shadow-card"
     >
-      <span className="block text-sm font-semibold text-navy-800">{title}</span>
+      <span className="flex items-center justify-between gap-2 text-sm font-semibold text-navy-900">
+        {title}
+        <span aria-hidden="true" className="text-gold-500 transition-transform duration-300 group-hover:translate-x-1">→</span>
+      </span>
       <span className="mt-1 block text-sm leading-relaxed text-ink-700">{description}</span>
     </Link>
   );
@@ -160,12 +161,15 @@ export function SafetyNoticeBox({
   children: ReactNode;
 }) {
   return (
-    <aside className="rounded-2xl border border-gold-400/50 bg-gold-100/40 p-6">
-      <h3 className="flex items-center gap-2 text-base font-semibold text-navy-800">
-        <span aria-hidden="true">🛡️</span>
+    <aside className="relative overflow-hidden rounded-3xl border border-gold-200 bg-gradient-to-br from-gold-100/70 to-cream-100 p-6">
+      <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gold-200/40 blur-2xl" aria-hidden="true" />
+      <h3 className="flex items-center gap-2 text-base font-bold text-navy-900">
+        <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-navy-900 text-xs text-gold-300" aria-hidden="true">
+          ✓
+        </span>
         {title}
       </h3>
-      <div className="mt-2 text-sm leading-relaxed text-ink-700">{children}</div>
+      <div className="relative mt-2 text-sm leading-relaxed text-ink-700">{children}</div>
     </aside>
   );
 }
@@ -178,43 +182,58 @@ export function ContactCTA({
   description?: string;
 }) {
   return (
-    <section className="rounded-2xl bg-navy-800 px-6 py-10 text-center sm:px-10">
-      <h2 className="text-xl font-semibold text-white sm:text-2xl">{title}</h2>
-      <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-navy-100/85">
-        {description}
-      </p>
-      <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <ButtonLink href="/booking-inquiry/" variant="secondary">
-          예약 문의하기
-        </ButtonLink>
-        <ButtonLink href="/service-area/" variant="ghost">
-          지역별 가능 범위 확인하기
-        </ButtonLink>
+    <section className="relative overflow-hidden rounded-4xl bg-navy-900 bg-hero-radial px-6 py-12 text-center sm:px-10 sm:py-14">
+      <div className="bg-noise absolute inset-0 opacity-60" aria-hidden="true" />
+      <div className="relative">
+        <p className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium text-gold-200">
+          8 마사지 · 방문 케어 안내
+        </p>
+        <h2 className="text-xl font-bold tracking-tight text-white sm:text-2xl lg:text-3xl">{title}</h2>
+        <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-navy-100/85">
+          {description}
+        </p>
+        <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <ButtonLink href="/booking-inquiry/" variant="secondary">
+            예약 문의하기
+          </ButtonLink>
+          <ButtonLink href="/service-area/" variant="light">
+            지역별 가능 범위 확인하기
+          </ButtonLink>
+        </div>
       </div>
     </section>
   );
 }
 
-/* ---------- Page section wrapper & prose ---------- */
+/* ---------- Page hero & prose ---------- */
 
 export function PageHero({
   breadcrumb,
   title,
   description,
+  eyebrow,
 }: {
   breadcrumb: ReactNode;
   title: string;
   description?: string;
+  eyebrow?: string;
 }) {
   return (
-    <section className="border-b border-navy-100 bg-navy-50/50">
-      <Container className="py-8 sm:py-12">
-        <div className="mb-4">{breadcrumb}</div>
-        <h1 className="text-2xl font-bold tracking-tight text-ink-900 sm:text-3xl lg:text-4xl">
+    <section className="relative overflow-hidden bg-navy-900 bg-hero-radial">
+      <div className="bg-noise absolute inset-0 opacity-50" aria-hidden="true" />
+      <span className="absolute inset-x-0 bottom-0 h-px bg-gold-line" aria-hidden="true" />
+      <Container className="relative py-10 sm:py-14">
+        <div className="mb-5 [&_a]:text-navy-100/70 [&_a:hover]:text-gold-200 [&_span]:text-navy-100/40 [&_[aria-current]]:text-white">
+          {breadcrumb}
+        </div>
+        {eyebrow ? (
+          <p className="mb-3 text-sm font-semibold tracking-wide text-gold-300">{eyebrow}</p>
+        ) : null}
+        <h1 className="max-w-3xl text-2xl font-bold leading-tight tracking-tighter text-white sm:text-3xl lg:text-[2.6rem]">
           {title}
         </h1>
         {description ? (
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-ink-700">
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-navy-100/80">
             {description}
           </p>
         ) : null}
@@ -225,7 +244,7 @@ export function PageHero({
 
 export function Prose({ children }: { children: ReactNode }) {
   return (
-    <div className="space-y-4 text-base leading-relaxed text-ink-700 [&_h2]:mt-10 [&_h2]:scroll-mt-28 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-ink-900 sm:[&_h2]:text-2xl [&_h3]:mt-6 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-ink-900 [&_strong]:font-semibold [&_strong]:text-ink-800 [&_ul]:list-disc [&_ul]:space-y-1.5 [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:space-y-1.5 [&_ol]:pl-5">
+    <div className="space-y-4 text-[15px] leading-[1.85] text-ink-700 sm:text-base [&_h2]:mt-12 [&_h2]:scroll-mt-28 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:tracking-tight [&_h2]:text-navy-900 sm:[&_h2]:text-2xl [&_h3]:mt-7 [&_h3]:text-lg [&_h3]:font-bold [&_h3]:text-navy-900 [&_strong]:font-semibold [&_strong]:text-navy-800 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5 [&_ul]:marker:text-gold-500 [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-5 [&_ol]:marker:font-semibold [&_ol]:marker:text-gold-600 [&_a]:font-medium [&_a]:text-navy-800 [&_a]:underline [&_a]:decoration-gold-300 [&_a]:underline-offset-4">
       {children}
     </div>
   );

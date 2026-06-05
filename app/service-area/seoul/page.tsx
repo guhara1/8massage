@@ -63,7 +63,7 @@ export default function SeoulPage() {
             <a
               key={a.id}
               href={`#${a.id}`}
-              className="rounded-full border border-navy-100 bg-white px-4 py-1.5 text-sm text-navy-800 hover:border-gold-400"
+              className="rounded-full border border-navy-100 bg-white px-4 py-2 text-sm font-medium text-navy-800 shadow-card transition-colors hover:border-gold-300 hover:text-gold-700"
             >
               {a.label}
             </a>
@@ -164,7 +164,7 @@ export default function SeoulPage() {
             </section>
           </article>
 
-          <aside className="space-y-6">
+          <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
             <SafetyNoticeBox>
               8 마사지는 건전한 방문 케어만 안내하며, 성적·불법 요청이나 사전에 합의되지 않은
               요청은 제공하지 않습니다.

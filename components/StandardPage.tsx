@@ -46,7 +46,9 @@ export default function StandardPage({
           <article>
             <Prose>{children}</Prose>
           </article>
-          {aside ? <aside className="space-y-6">{aside}</aside> : null}
+          {aside ? (
+            <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">{aside}</aside>
+          ) : null}
         </div>
 
         {faqs && faqs.length > 0 ? (
