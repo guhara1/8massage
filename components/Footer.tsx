@@ -2,6 +2,7 @@ import Link from "next/link";
 import Container from "./Container";
 import { FOOTER_GROUPS } from "@/lib/navigation";
 import { SITE } from "@/lib/site";
+import { PRICE_SUMMARY } from "@/lib/pricing";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -9,6 +10,21 @@ export default function Footer() {
     <footer className="relative mt-24 overflow-hidden border-t border-white/5 bg-navy-950 text-navy-100">
       <div className="bg-noise absolute inset-0 opacity-40" aria-hidden="true" />
       <span className="absolute inset-x-0 top-0 h-px bg-gold-line" aria-hidden="true" />
+
+      {/* 전 페이지 공통 요금 안내 스트립 */}
+      <Container className="relative">
+        <Link
+          href="/price/"
+          className="flex flex-col items-center justify-center gap-1.5 border-b border-white/10 py-5 text-center transition-colors hover:text-white sm:flex-row sm:gap-3"
+        >
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
+            요금 안내
+          </span>
+          <span className="text-sm font-medium text-navy-100/90">{PRICE_SUMMARY}</span>
+          <span className="text-sm text-gold-300" aria-hidden="true">→</span>
+        </Link>
+      </Container>
+
       <Container className="relative py-14">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_3fr]">
           <div>

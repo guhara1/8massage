@@ -75,7 +75,7 @@ export default function GyeonggiPage() {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem]">
           <article className="editorial-count max-w-[42rem] space-y-12 text-[16px] leading-[1.9] text-ink-700 sm:text-[17px]">
             <section>
-              <SectionHeading as="h2" title="경기 출장마사지 운영 안내" />
+              <SectionHeading as="h2" title="경기 권역은 이렇게 나뉩니다" />
               <p>
                 경기도는 서울을 둘러싸고 넓게 펼쳐진 만큼, 하나의 기준으로 묶어 설명하기 어려운
                 지역입니다. 도시마다 생활 리듬이 다르고, 같은 시·군 안에서도 이동 거리가 상당히
@@ -87,7 +87,7 @@ export default function GyeonggiPage() {
             </section>
 
             <section>
-              <SectionHeading id="south" as="h2" title="경기 남부(성남·분당·수원) 출장마사지 안내" />
+              <SectionHeading id="south" as="h2" title="남부 — 성남·분당·수원" />
               <p>
                 성남·분당·수원을 중심으로 한 경기 남부는 오피스와 주거, 상권이 고르게 섞여 있어
                 생활 수요가 두터운 권역입니다. 분당과 판교 일대는 업무 일정 뒤의 휴식 수요가,
@@ -98,7 +98,7 @@ export default function GyeonggiPage() {
             </section>
 
             <section>
-              <SectionHeading id="west" as="h2" title="경기 서부(부천·안산·시흥) 출장마사지 안내" />
+              <SectionHeading id="west" as="h2" title="서부 — 부천·안산·시흥" />
               <p>
                 부천·안산·시흥으로 이어지는 경기 서부는 도시들이 가깝게 붙어 있으면서도 각각의
                 생활권이 뚜렷한 지역입니다. 이 권역에서 예약을 준비하실 때는 이동 거리와 예약 시간
@@ -109,7 +109,7 @@ export default function GyeonggiPage() {
             </section>
 
             <section>
-              <SectionHeading id="east" as="h2" title="경기 동부(하남·남양주·구리) 출장마사지 안내" />
+              <SectionHeading id="east" as="h2" title="동부 — 하남·남양주·구리" />
               <p>
                 하남·남양주·구리를 포함하는 경기 동부는 서울 동쪽과 맞닿아 있으면서 신도시와
                 기존 주거지가 함께 자리한 권역입니다. 지역에 따라 진입 동선이 단순하지 않은 곳이
@@ -120,7 +120,7 @@ export default function GyeonggiPage() {
             </section>
 
             <section>
-              <SectionHeading id="north" as="h2" title="경기 북부(고양·의정부·파주) 출장마사지 안내" />
+              <SectionHeading id="north" as="h2" title="북부 — 고양·의정부·파주" />
               <p>
                 고양·의정부·파주로 대표되는 경기 북부는 주거권이 넓게 분포하고 도시 사이 간격이
                 있는 편이라, 예약 가능 시간대 확인이 가장 중요한 권역입니다. 원하는 시간과 이동
@@ -131,7 +131,7 @@ export default function GyeonggiPage() {
             </section>
 
             <section>
-              <SectionHeading as="h2" title="경기 출장마사지 예약 전 확인사항" />
+              <SectionHeading as="h2" title="예약 전 확인사항" />
               <ul className="list-disc space-y-1.5 pl-5">
                 <li>도시명과 대략적인 위치를 구체적으로 알려 주세요.</li>
                 <li>이동 시간을 고려해 희망 시간대를 여유 있게 제시합니다.</li>
@@ -141,7 +141,7 @@ export default function GyeonggiPage() {
             </section>
 
             <section>
-              <SectionHeading as="h2" title="경기 출장마사지 서비스 선택 기준" />
+              <SectionHeading as="h2" title="서비스 선택 기준" />
               <p>
                 경기 지역은 이동 시간이 길어질 수 있어, 방문 후 충분히 휴식할 수 있는 시간을
                 확보해 두는 것이 만족도를 높입니다. 활동량이 많았던 날에는 근육 이완 케어를,
@@ -194,7 +194,7 @@ export default function GyeonggiPage() {
 
         <div className="mt-14">
           <JsonLd data={faqLd(faqs)} />
-          <SectionHeading as="h2" title="경기 출장마사지 FAQ" />
+          <SectionHeading as="h2" title="경기 지역 자주 묻는 질문" />
           <FAQAccordion items={faqs} />
         </div>
 

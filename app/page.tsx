@@ -5,6 +5,7 @@ import SectionHeading from "@/components/SectionHeading";
 import JsonLd from "@/components/JsonLd";
 import FAQAccordion from "@/components/FAQAccordion";
 import Reveal from "@/components/Reveal";
+import PriceTable from "@/components/PriceTable";
 import {
   ButtonLink,
   RegionCard,
@@ -293,25 +294,22 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* 6. 요금 안내 요약 */}
+      {/* 6. 요금 안내 */}
       <Container className="py-16 sm:py-20">
+        <SectionHeading
+          eyebrow="요금 안내"
+          title="코스별 기본 요금"
+          description="60·90·120분 코스별 기본 요금입니다. 숨겨진 추가 비용 없이 투명하게 안내합니다."
+        />
         <Reveal>
-          <div className="grid items-center gap-8 overflow-hidden rounded-4xl border border-navy-100 bg-white p-8 shadow-card sm:p-10 lg:grid-cols-2">
-            <div>
-              <SectionHeading eyebrow="요금 안내" title="요금은 상황에 따라 달라집니다" />
-              <p className="text-base leading-relaxed text-ink-700">
-                요금은 선택하는 서비스 종류와 진행 시간, 방문 지역, 예약 시간대, 이동 거리 등에 따라
-                달라질 수 있습니다. 8 마사지는 상담 단계에서 기준을 명확히 안내하며, 안내되지 않은
-                추가 비용이 발생하지 않도록 합니다.
-              </p>
-            </div>
-            <div className="lg:text-right">
-              <ButtonLink href="/price/" variant="primary">
-                상세 요금 안내 보기
-              </ButtonLink>
-            </div>
-          </div>
+          <PriceTable />
         </Reveal>
+        <p className="mt-6 text-sm text-ink-700">
+          지역·예약 시간대·이동 거리에 따라 상담 시 최종 확인됩니다.{" "}
+          <Link href="/price/" className="font-semibold text-gold-600 hover:text-gold-500">
+            상세 요금 안내 보기 →
+          </Link>
+        </p>
       </Container>
 
       {/* 7. 위생·안전 */}

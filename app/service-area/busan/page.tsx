@@ -75,7 +75,7 @@ export default function BusanPage() {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem]">
           <article className="editorial-count max-w-[42rem] space-y-12 text-[16px] leading-[1.9] text-ink-700 sm:text-[17px]">
             <section>
-              <SectionHeading as="h2" title="부산 출장마사지 운영 안내" />
+              <SectionHeading as="h2" title="부산 권역은 이렇게 나뉩니다" />
               <p>
                 부산은 바다와 산이 도시 곳곳을 가르고 있어, 직선거리로는 가까워 보여도 실제 이동
                 동선은 제법 돌아가는 경우가 많습니다. 해안을 따라 형성된 생활권과 내륙의 번화가,
@@ -87,7 +87,7 @@ export default function BusanPage() {
             </section>
 
             <section>
-              <SectionHeading id="haeundae" as="h2" title="부산 해운대권(해운대·수영·센텀) 출장마사지 안내" />
+              <SectionHeading id="haeundae" as="h2" title="해운대권 — 해운대·수영·센텀" />
               <p>
                 해운대·수영·센텀을 아우르는 해운대권은 숙박과 업무, 주거 수요가 한데 섞인 부산의
                 대표 권역입니다. 해변 인근의 호텔과 레지던스, 센텀의 업무 시설, 그리고 인접한 주거
@@ -98,7 +98,7 @@ export default function BusanPage() {
             </section>
 
             <section>
-              <SectionHeading id="central" as="h2" title="부산 중심권(서면·부산진·동래) 출장마사지 안내" />
+              <SectionHeading id="central" as="h2" title="중심권 — 서면·부산진·동래" />
               <p>
                 서면·부산진·동래로 이어지는 중심권은 부산 교통과 상권이 모이는 핵심 지역입니다.
                 접근성이 좋아 다양한 시간대에 문의가 들어오지만, 그만큼 번화가 주변은 시간대에 따라
@@ -109,7 +109,7 @@ export default function BusanPage() {
             </section>
 
             <section>
-              <SectionHeading id="south" as="h2" title="부산 남부권(남구·중구·영도) 출장마사지 안내" />
+              <SectionHeading id="south" as="h2" title="남부권 — 남구·중구·영도" />
               <p>
                 남구·중구·영도를 포함하는 남부권은 항만과 원도심, 섬 지역이 어우러진 곳으로 지형의
                 개성이 뚜렷합니다. 특히 영도처럼 다리를 건너야 하는 지역은 진입 동선이 단순하지 않아,
@@ -120,7 +120,7 @@ export default function BusanPage() {
             </section>
 
             <section>
-              <SectionHeading id="west" as="h2" title="부산 서부권(사하·강서·사상) 출장마사지 안내" />
+              <SectionHeading id="west" as="h2" title="서부권 — 사하·강서·사상" />
               <p>
                 사하·강서·사상으로 대표되는 서부권은 주거지와 산업·물류 지역이 넓게 분포해 도시
                 간 거리가 비교적 긴 편입니다. 이 권역에서는 지역 간 거리와 예약 가능 시간 확인이
@@ -131,7 +131,7 @@ export default function BusanPage() {
             </section>
 
             <section>
-              <SectionHeading as="h2" title="부산 출장마사지 예약 전 확인사항" />
+              <SectionHeading as="h2" title="예약 전 확인사항" />
               <ul className="list-disc space-y-1.5 pl-5">
                 <li>해안·섬 지역은 진입 동선과 이동 시간을 함께 확인합니다.</li>
                 <li>숙박 시설은 출입 방식과 객실 위치를 미리 공유합니다.</li>
@@ -141,7 +141,7 @@ export default function BusanPage() {
             </section>
 
             <section>
-              <SectionHeading as="h2" title="부산 출장마사지 서비스 선택 기준" />
+              <SectionHeading as="h2" title="서비스 선택 기준" />
               <p>
                 여행이나 출장으로 부산에 머무는 동안의 피로를 정리하고 싶다면, 일정과 상태에 맞는
                 케어를 고르는 것이 좋습니다. 많이 걷거나 활동한 날에는 근육 이완 케어가, 전반적인
@@ -194,7 +194,7 @@ export default function BusanPage() {
 
         <div className="mt-14">
           <JsonLd data={faqLd(faqs)} />
-          <SectionHeading as="h2" title="부산 출장마사지 FAQ" />
+          <SectionHeading as="h2" title="부산 지역 자주 묻는 질문" />
           <FAQAccordion items={faqs} />
         </div>
 

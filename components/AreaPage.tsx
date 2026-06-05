@@ -80,7 +80,7 @@ export default function AreaPage({ region, area }: { region: Region; area: Area 
 
         <div className="mt-14">
           <JsonLd data={faqLd(area.faqs)} />
-          <SectionHeading as="h2" title={`${area.name} 출장마사지 FAQ`} />
+          <SectionHeading as="h2" title={`${area.name} 자주 묻는 질문`} />
           <FAQAccordion items={area.faqs} />
         </div>
 

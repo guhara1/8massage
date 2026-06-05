@@ -75,7 +75,7 @@ export default function SeoulPage() {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem]">
           <article className="editorial-count max-w-[42rem] space-y-12 text-[16px] leading-[1.9] text-ink-700 sm:text-[17px]">
             <section>
-              <SectionHeading as="h2" title="서울 출장마사지 운영 안내" />
+              <SectionHeading as="h2" title="서울 권역은 이렇게 나뉩니다" />
               <p>
                 서울은 면적에 비해 생활권이 촘촘하게 나뉘어 있고, 업무지구와 주거지, 상업지가
                 서로 다른 리듬으로 움직입니다. 8 마사지는 이런 서울의 특성을 고려해 권역을 네 곳으로
@@ -87,7 +87,7 @@ export default function SeoulPage() {
             </section>
 
             <section>
-              <SectionHeading id="gangnam" as="h2" title="서울 강남권(강남·서초·송파) 출장마사지 안내" />
+              <SectionHeading id="gangnam" as="h2" title="강남권 — 강남·서초·송파" />
               <p>
                 강남·서초·송파를 아우르는 강남권은 오피스 밀집 지역과 호텔, 대규모 주거 단지가
                 가까이 붙어 있는 것이 특징입니다. 업무를 마친 저녁 시간이나 출장·숙박 일정 사이에
@@ -99,7 +99,7 @@ export default function SeoulPage() {
             </section>
 
             <section>
-              <SectionHeading id="central" as="h2" title="서울 도심권(용산·중구·종로) 출장마사지 안내" />
+              <SectionHeading id="central" as="h2" title="도심권 — 용산·중구·종로" />
               <p>
                 용산·중구·종로를 묶은 도심권은 업무 일정과 숙박이 자연스럽게 이어지는 지역입니다.
                 회의나 출장으로 잠시 머무는 동안 컨디션을 정리하려는 수요가 있어, 일정 사이의 짧은
@@ -111,7 +111,7 @@ export default function SeoulPage() {
             </section>
 
             <section>
-              <SectionHeading id="northwest" as="h2" title="서울 서북권(마포·은평·서대문) 출장마사지 안내" />
+              <SectionHeading id="northwest" as="h2" title="서북권 — 마포·은평·서대문" />
               <p>
                 마포·은평·서대문으로 이어지는 서북권은 주거 지역의 비중이 높고 동네마다 분위기가
                 다른 곳입니다. 생활 반경 안에서 편안한 휴식을 찾는 분이 많아, 늦은 오후부터 저녁
@@ -123,7 +123,7 @@ export default function SeoulPage() {
             </section>
 
             <section>
-              <SectionHeading id="northeast" as="h2" title="서울 동북권(노원·도봉·강북) 출장마사지 안내" />
+              <SectionHeading id="northeast" as="h2" title="동북권 — 노원·도봉·강북" />
               <p>
                 노원·도봉·강북을 포함하는 동북권은 대단지 주거지가 넓게 자리해 생활 밀착형 수요가
                 많은 지역입니다. 도심에서 다소 떨어진 위치가 섞여 있어, 예약에서 가장 중요한 것은
@@ -135,7 +135,7 @@ export default function SeoulPage() {
             </section>
 
             <section>
-              <SectionHeading as="h2" title="서울 출장마사지 예약 전 확인사항" />
+              <SectionHeading as="h2" title="예약 전 확인사항" />
               <ul className="list-disc space-y-1.5 pl-5">
                 <li>방문 위치가 어느 권역에 해당하는지 먼저 확인합니다.</li>
                 <li>희망 시간대를 한 가지보다 두세 개로 열어두면 조율이 쉽습니다.</li>
@@ -145,7 +145,7 @@ export default function SeoulPage() {
             </section>
 
             <section>
-              <SectionHeading as="h2" title="서울 출장마사지 서비스 선택 기준" />
+              <SectionHeading as="h2" title="서비스 선택 기준" />
               <p>
                 같은 휴식이라도 그날의 상태에 따라 적합한 케어가 다릅니다. 종일 책상 앞에 있었다면
                 근육 이완 케어가, 전반적인 피로와 긴장을 풀고 싶다면 컨디션 케어가, 향과 함께
@@ -198,7 +198,7 @@ export default function SeoulPage() {
 
         <div className="mt-14">
           <JsonLd data={faqLd(faqs)} />
-          <SectionHeading as="h2" title="서울 출장마사지 FAQ" />
+          <SectionHeading as="h2" title="서울 지역 자주 묻는 질문" />
           <FAQAccordion items={faqs} />
         </div>
 

@@ -75,7 +75,7 @@ export default function IncheonPage() {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem]">
           <article className="editorial-count max-w-[42rem] space-y-12 text-[16px] leading-[1.9] text-ink-700 sm:text-[17px]">
             <section>
-              <SectionHeading as="h2" title="인천 출장마사지 운영 안내" />
+              <SectionHeading as="h2" title="인천 권역은 이렇게 나뉩니다" />
               <p>
                 인천은 오래된 도심과 새롭게 조성된 신도시가 한 도시 안에 공존하는 점이 특징입니다.
                 남동·미추홀처럼 생활 인프라가 촘촘한 중심부가 있는가 하면, 송도와 청라처럼 계획적으로
@@ -87,7 +87,7 @@ export default function IncheonPage() {
             </section>
 
             <section>
-              <SectionHeading id="central" as="h2" title="인천 중심권(남동·미추홀·구월) 출장마사지 안내" />
+              <SectionHeading id="central" as="h2" title="중심권 — 남동·미추홀·구월" />
               <p>
                 남동·미추홀·구월 일대는 인천의 행정과 상권이 모이는 생활 중심부입니다. 구월동을
                 비롯한 번화가와 주거지가 가까이 있어, 퇴근 이후나 저녁 시간대에 휴식을 찾는 수요가
@@ -98,7 +98,7 @@ export default function IncheonPage() {
             </section>
 
             <section>
-              <SectionHeading id="songdo" as="h2" title="인천 송도권(송도·연수·논현) 출장마사지 안내" />
+              <SectionHeading id="songdo" as="h2" title="송도권 — 송도·연수·논현" />
               <p>
                 송도·연수·논현으로 이어지는 송도권은 주거와 업무, 숙박 수요가 함께 자리한 지역입니다.
                 국제업무지구와 대규모 주거 단지가 인접해 다양한 시간대에 문의가 들어옵니다. 다만
@@ -109,7 +109,7 @@ export default function IncheonPage() {
             </section>
 
             <section>
-              <SectionHeading id="northwest" as="h2" title="인천 서북권(청라·서구·검단) 출장마사지 안내" />
+              <SectionHeading id="northwest" as="h2" title="서북권 — 청라·서구·검단" />
               <p>
                 청라·서구·검단을 포함하는 서북권은 새롭게 조성된 주거지가 빠르게 늘어난 지역으로,
                 예약 시 이동 시간 확인이 특히 중요합니다. 신도시 특성상 인접해 보여도 실제 진입
@@ -120,7 +120,7 @@ export default function IncheonPage() {
             </section>
 
             <section>
-              <SectionHeading id="north" as="h2" title="인천 북부권(부평·계양) 출장마사지 안내" />
+              <SectionHeading id="north" as="h2" title="북부권 — 부평·계양" />
               <p>
                 부평·계양으로 대표되는 북부권은 오래된 주거지와 상권이 어우러진 생활 밀착형
                 지역입니다. 유동 인구가 많고 생활 수요가 꾸준한 만큼, 원하는 시간대에 예약이 몰릴
@@ -131,7 +131,7 @@ export default function IncheonPage() {
             </section>
 
             <section>
-              <SectionHeading as="h2" title="인천 출장마사지 예약 전 확인사항" />
+              <SectionHeading as="h2" title="예약 전 확인사항" />
               <ul className="list-disc space-y-1.5 pl-5">
                 <li>신도시 지역은 동·호수와 출입 방식을 구체적으로 공유합니다.</li>
                 <li>이동 시간을 고려해 도착 예정 시간을 함께 확인합니다.</li>
@@ -141,7 +141,7 @@ export default function IncheonPage() {
             </section>
 
             <section>
-              <SectionHeading as="h2" title="인천 출장마사지 서비스 선택 기준" />
+              <SectionHeading as="h2" title="서비스 선택 기준" />
               <p>
                 인천은 권역마다 생활 패턴이 달라, 본인의 하루 일과에 맞춰 케어를 고르면 만족도가
                 높습니다. 활동량이 많았던 날에는 근육 이완 케어가, 누적된 피로와 긴장을 풀고 싶다면
@@ -194,7 +194,7 @@ export default function IncheonPage() {
 
         <div className="mt-14">
           <JsonLd data={faqLd(faqs)} />
-          <SectionHeading as="h2" title="인천 출장마사지 FAQ" />
+          <SectionHeading as="h2" title="인천 지역 자주 묻는 질문" />
           <FAQAccordion items={faqs} />
         </div>
 
