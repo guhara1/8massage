@@ -15,6 +15,12 @@ export const metadata: Metadata = {
   applicationName: SITE.name,
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
+  verification: {
+    google: "rZrHdmVoMc1wfOstajrLuSwpzrzhq5ADNamYd9-rYD0",
+    other: {
+      "naver-site-verification": "b8cf4e4ec909cf57de78e653efdc4bc070a38c10",
+    },
+  },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
   },
