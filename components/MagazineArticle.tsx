@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import Link from "next/link";
 import Container from "./Container";
 import Breadcrumb from "./Breadcrumb";
 import FAQAccordion, { FAQ } from "./FAQAccordion";
@@ -61,7 +62,9 @@ export default function MagazineArticle({
           </span>
           <div className="leading-tight">
             <p className="text-sm font-semibold text-navy-900">
-              <span itemProp="author">{SITE.author.name}</span>
+              <Link href="/about/editorial/" className="hover:text-gold-600" itemProp="author">
+                {SITE.author.name}
+              </Link>
             </p>
             <p className="mt-0.5 text-xs text-ink-600">
               <span className="font-medium text-gold-600">{category}</span>
@@ -88,6 +91,13 @@ export default function MagazineArticle({
             <div>
               <p className="text-sm font-bold text-navy-900">글 · {SITE.author.name}</p>
               <p className="mt-1.5 text-sm leading-relaxed text-ink-700">{SITE.author.bio}</p>
+              <Link
+                href="/about/editorial/"
+                className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-gold-600 hover:text-gold-500"
+              >
+                편집 정책 · 저자 소개 보기
+                <span aria-hidden="true">→</span>
+              </Link>
             </div>
           </div>
         </div>

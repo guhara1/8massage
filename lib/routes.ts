@@ -26,6 +26,7 @@ export const ROUTES: RouteEntry[] = [
   { path: "/about/brand/", priority: 0.6, changeFrequency: "monthly" },
   { path: "/about/policy/", priority: 0.6, changeFrequency: "monthly" },
   { path: "/about/service-area-policy/", priority: 0.6, changeFrequency: "monthly" },
+  { path: "/about/editorial/", priority: 0.5, changeFrequency: "yearly" },
 
   // 서비스
   { path: "/services/visit-massage/", priority: 0.9, changeFrequency: "monthly" },

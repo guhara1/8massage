@@ -143,6 +143,7 @@ export const FOOTER_GROUPS = [
       { label: "브랜드 소개", href: "/about/brand/" },
       { label: "운영 원칙", href: "/about/policy/" },
       { label: "서비스 가능 범위", href: "/about/service-area-policy/" },
+      { label: "편집 정책 · 저자 소개", href: "/about/editorial/" },
     ],
   },
   {

@@ -7,7 +7,12 @@ type PageMetaInput = {
   path: string;
   /** 기본은 index,follow. 색인에서 제외할 경우 false */
   index?: boolean;
+  /** 선호 대표 이미지(og:image). 기본값은 사이트 공통 OG 이미지. */
+  image?: string;
 };
+
+/** 사이트 공통 선호 썸네일(og:image / schema image). */
+export const DEFAULT_OG_IMAGE = "/og.png";
 
 /**
  * 페이지별 고유 title / description / canonical 을 일관되게 생성한다.
@@ -17,8 +22,10 @@ export function pageMetadata({
   description,
   path,
   index = true,
+  image = DEFAULT_OG_IMAGE,
 }: PageMetaInput): Metadata {
   const canonical = absoluteUrl(path);
+  const ogImage = absoluteUrl(image);
   return {
     title,
     description,
@@ -33,11 +40,13 @@ export function pageMetadata({
       siteName: SITE.name,
       locale: SITE.locale,
       type: "website",
+      images: [{ url: ogImage, width: 1200, height: 630, alt: SITE.name }],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title,
       description,
+      images: [ogImage],
     },
   };
 }
@@ -85,10 +94,11 @@ export function articleLd(input: {
     headline: input.title,
     description: input.description,
     mainEntityOfPage: absoluteUrl(input.path),
+    image: [absoluteUrl(DEFAULT_OG_IMAGE)],
     author: {
       "@type": "Organization",
       name: SITE.author.name,
-      url: absoluteUrl("/about/brand/"),
+      url: absoluteUrl("/about/editorial/"),
     },
     publisher: {
       "@type": "Organization",
@@ -107,7 +117,16 @@ export function organizationLd() {
     name: SITE.name,
     url: SITE.url,
     description: SITE.description,
+    logo: absoluteUrl("/favicon.svg"),
+    image: absoluteUrl(DEFAULT_OG_IMAGE),
     areaServed: ["서울", "경기", "인천", "부산"],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      url: absoluteUrl("/contact/"),
+      areaServed: "KR",
+      availableLanguage: "Korean",
+    },
   };
 }
 
