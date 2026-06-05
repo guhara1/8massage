@@ -148,5 +148,7 @@ export const ARTICLES: ArticleMeta[] = [
 ];
 
 export function articlesByCategory(categoryHref: string): ArticleMeta[] {
-  return ARTICLES.filter((a) => a.categoryHref === categoryHref);
+  return ARTICLES.filter((a) => a.categoryHref === categoryHref).sort((a, b) =>
+    b.datePublished.localeCompare(a.datePublished)
+  );
 }

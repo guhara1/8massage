@@ -32,6 +32,7 @@ export default function MagazineCategory({ category }: { category: Category }) {
                   title={a.title}
                   href={a.href}
                   excerpt={a.excerpt}
+                  date={a.datePublished}
                 />
               ))}
             </div>

@@ -48,6 +48,7 @@ export default function MagazineHome() {
                 href={a.href}
                 excerpt={a.excerpt}
                 category={a.category}
+                date={a.datePublished}
               />
             ))}
           </div>

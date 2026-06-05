@@ -4,6 +4,7 @@ import Breadcrumb from "./Breadcrumb";
 import FAQAccordion, { FAQ } from "./FAQAccordion";
 import JsonLd from "./JsonLd";
 import SectionHeading from "./SectionHeading";
+import ArticleToc from "./ArticleToc";
 import { PageHero, Prose, ContactCTA, InternalLinkCard } from "./ui";
 import { faqLd, articleLd } from "@/lib/seo";
 
@@ -50,15 +51,20 @@ export default function MagazineArticle({
       />
 
       <Container className="py-12">
-        <p className="mb-6 text-sm text-ink-700/70">
+        <p className="mb-6 text-sm text-ink-700/80">
           <span className="font-semibold text-gold-600">{category}</span>
           <span className="mx-2" aria-hidden="true">·</span>
-          <time dateTime={datePublished}>{datePublished}</time>
+          <time dateTime={datePublished} className="font-medium">
+            {datePublished.replace(/-/g, ".")} 발행
+          </time>
         </p>
 
-        <article className="max-w-3xl">
-          <Prose>{children}</Prose>
-        </article>
+        <div className="max-w-3xl">
+          <ArticleToc targetId="article-body" />
+          <article id="article-body">
+            <Prose>{children}</Prose>
+          </article>
+        </div>
 
         {/* 관련 내부링크 */}
         <div className="mt-12">

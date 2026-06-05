@@ -101,20 +101,29 @@ export function MagazineCard({
   href,
   excerpt,
   category,
+  date,
 }: {
   title: string;
   href: string;
   excerpt: string;
   category?: string;
+  date?: string;
 }) {
   return (
     <Link href={href} className="group block h-full">
       <article className="flex h-full flex-col rounded-3xl border border-navy-100 bg-white p-6 shadow-card transition-all duration-300 ease-premium hover:-translate-y-1 hover:border-gold-300 hover:shadow-lift">
-        {category ? (
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-gold-600">
-            {category}
-          </p>
-        ) : null}
+        <div className="mb-2 flex items-center justify-between gap-2">
+          {category ? (
+            <p className="text-xs font-semibold uppercase tracking-wide text-gold-600">
+              {category}
+            </p>
+          ) : <span />}
+          {date ? (
+            <time dateTime={date} className="text-xs font-medium text-ink-600">
+              {date.replace(/-/g, ".")}
+            </time>
+          ) : null}
+        </div>
         <h3 className="text-base font-bold leading-snug text-navy-900 group-hover:text-navy-700">
           {title}
         </h3>
