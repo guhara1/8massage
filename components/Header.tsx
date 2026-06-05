@@ -34,6 +34,11 @@ export default function Header() {
     };
   }, [mobileOpen]);
 
+  // 라우트 변경 시 포커스를 해제해 hover/focus 드롭다운이 열린 채 남는 문제 방지
+  useEffect(() => {
+    (document.activeElement as HTMLElement | null)?.blur?.();
+  }, [pathname]);
+
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
@@ -66,6 +71,7 @@ export default function Header() {
                   <Link
                     href={item.href}
                     aria-current={active ? "page" : undefined}
+                    onClick={(e) => e.currentTarget.blur()}
                     className={`relative inline-flex items-center rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                       active ? "text-navy-900" : "text-ink-600 hover:text-navy-900"
                     }`}
@@ -83,6 +89,7 @@ export default function Header() {
                         <li key={child.href}>
                           <Link
                             href={child.href}
+                            onClick={(e) => e.currentTarget.blur()}
                             className="block rounded-xl px-3 py-2 text-sm font-medium text-ink-700 transition-colors hover:bg-navy-50 hover:text-navy-900"
                           >
                             {child.label}
@@ -93,6 +100,7 @@ export default function Header() {
                                 <li key={a.href}>
                                   <Link
                                     href={a.href}
+                                    onClick={(e) => e.currentTarget.blur()}
                                     className="block rounded-lg px-2 py-1 text-xs text-ink-600 transition-colors hover:bg-navy-50 hover:text-navy-900"
                                   >
                                     {a.label}
