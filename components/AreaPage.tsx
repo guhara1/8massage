@@ -40,7 +40,7 @@ export default function AreaPage({ region, area }: { region: Region; area: Area 
             ))}
 
             <section>
-              <SectionHeading as="h2" title={`${area.name} 예약 전 확인사항`} />
+              <SectionHeading as="h2" title={`${area.districts} 예약 전 확인사항`} />
               <ul className="list-disc space-y-1.5 pl-5">
                 {area.bullets.map((b) => (
                   <li key={b}>{b}</li>
@@ -85,14 +85,14 @@ export default function AreaPage({ region, area }: { region: Region; area: Area 
 
         <div className="mt-14">
           <JsonLd data={faqLd(area.faqs)} />
-          <SectionHeading as="h2" title={`${area.name} 자주 묻는 질문`} />
+          <SectionHeading as="h2" title={`${area.districts} 자주 묻는 질문`} />
           <FAQAccordion items={area.faqs} />
         </div>
 
         <div className="mt-14">
           <ContactCTA
-            title={`${region.name} ${area.name} 예약 가능 여부를 확인해 보세요`}
-            description={`${area.districts} 등 ${area.name} 내 희망 위치와 시간을 알려 주시면 가능 여부를 안내해 드립니다.`}
+            title={`${area.districts} 출장마사지 예약 가능 여부를 확인해 보세요`}
+            description={`${area.districts} 등 희망하시는 위치와 시간을 알려 주시면 가능 여부를 안내해 드립니다.`}
           />
         </div>
       </Container>
