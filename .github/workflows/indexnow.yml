@@ -1,0 +1,28 @@
+name: IndexNow ping
+
+# 글/콘텐츠가 바뀌어 푸시되면 Cloudflare 배포 완료를 기다린 뒤
+# Bing·Naver 등에 즉시 색인을 통보한다.
+on:
+  push:
+    branches:
+      - claude/charming-keller-lbMVo
+    paths:
+      - "app/magazine/**"
+      - "lib/magazine.ts"
+      - "lib/routes.ts"
+      - "lib/serviceAreas.ts"
+
+# 동시 실행 방지
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cloudflare 배포 대기
+        run: sleep 120
+      - name: IndexNow 통보 (전체 사이트맵)
+        run: node scripts/indexnow.mjs

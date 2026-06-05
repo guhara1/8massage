@@ -2,16 +2,23 @@ import type { MetadataRoute } from "next";
 import { SITE, absoluteUrl } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
+  const allow = "/";
+  const disallow = ["/api/", "/*?*"];
   return {
     rules: [
-      {
-        userAgent: "*",
-        allow: "/",
-        // 색인 가치가 없는 동작성 경로는 차단 (현재는 존재하지 않지만 방어적으로 명시)
-        disallow: ["/api/", "/*?*"],
-      },
+      // 전체 봇 기본 허용
+      { userAgent: "*", allow, disallow },
+      // 구글
+      { userAgent: "Googlebot", allow, disallow },
+      { userAgent: "Googlebot-Image", allow },
+      // 네이버
+      { userAgent: "Yeti", allow, disallow },
+      // 빙 (IndexNow 파트너)
+      { userAgent: "bingbot", allow, disallow },
+      // 다음
+      { userAgent: "Daumoa", allow, disallow },
     ],
-    sitemap: absoluteUrl("/sitemap.xml"),
+    sitemap: [absoluteUrl("/sitemap.xml"), absoluteUrl("/sitemap1.xml")],
     host: SITE.url,
   };
 }

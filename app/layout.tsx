@@ -13,7 +13,10 @@ export const metadata: Metadata = {
   },
   description: SITE.description,
   applicationName: SITE.name,
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    types: { "application/rss+xml": "/rss.xml" },
+  },
   robots: { index: true, follow: true },
   verification: {
     google: "rZrHdmVoMc1wfOstajrLuSwpzrzhq5ADNamYd9-rYD0",

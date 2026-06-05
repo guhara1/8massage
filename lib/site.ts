@@ -6,6 +6,8 @@ export const SITE = {
   description:
     "8 마사지는 서울, 경기, 인천, 부산 지역 출장마사지 정보를 안내합니다. 예약 절차, 가능 지역, 요금 기준, 위생 관리, 제공하지 않는 서비스까지 투명하게 확인하세요.",
   locale: "ko_KR",
+  // IndexNow 키 (public/<key>.txt 와 동일해야 함). 빙·네이버 즉시 색인 통보용.
+  indexNowKey: "14e2b57edc8abf4a6417c9aa6d514803",
   // 매거진 글 저자(발행 주체). 가짜 인물 대신 정직하게 편집팀으로 표기한다.
   author: {
     name: "8 마사지 편집팀",
