@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV } from "@/lib/navigation";
+import { SITE } from "@/lib/site";
 
 function isActive(pathname: string, item: { href: string; children: { href: string }[] }) {
   const base = item.href.split("#")[0];
@@ -119,7 +120,14 @@ export default function Header() {
           </ul>
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-3 lg:flex">
+          <a
+            href={SITE.contact.phoneTel}
+            className="inline-flex items-center gap-1.5 text-sm font-bold text-navy-900 hover:text-gold-600"
+          >
+            <span aria-hidden="true">📞</span>
+            {SITE.contact.phone}
+          </a>
           <Link
             href="/booking-inquiry/"
             className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-br from-navy-700 to-navy-900 px-4 py-2.5 text-sm font-semibold text-white shadow-card transition-transform hover:-translate-y-0.5"

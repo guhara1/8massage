@@ -52,6 +52,18 @@ export default function Page() {
         </>
       }
     >
+      <div className="not-prose mb-2 flex flex-col items-center gap-3 rounded-3xl bg-navy-900 bg-hero-radial px-6 py-8 text-center">
+        <p className="text-sm font-medium text-gold-200">가장 빠른 예약은 전화입니다</p>
+        <a
+          href={SITE.contact.phoneTel}
+          className="inline-flex items-center gap-2 text-2xl font-extrabold tracking-tight text-white hover:text-gold-200 sm:text-3xl"
+        >
+          <span aria-hidden="true">📞</span>
+          {SITE.contact.phone}
+        </a>
+        <p className="text-xs text-navy-100/70">상담 시간 {SITE.contact.hours}</p>
+      </div>
+
       <h2>예약 문의 안내</h2>
       <p>
         예약 문의는 가능 여부를 확인하는 첫 단계입니다. 부담 없이 원하는 조건을 알려 주시면, 8

@@ -39,6 +39,14 @@ export default function Footer() {
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-navy-100/70">
               서울·경기·인천·부산 지역의 건전한 방문 케어 정보를 과장 없이 투명하게 안내합니다.
             </p>
+            <a
+              href={SITE.contact.phoneTel}
+              className="mt-4 inline-flex items-center gap-2 text-lg font-bold text-gold-300 hover:text-gold-200"
+            >
+              <span aria-hidden="true">📞</span>
+              {SITE.contact.phone}
+            </a>
+            <p className="mt-1 text-xs text-navy-100/60">전화 예약 · {SITE.contact.hours}</p>
           </div>
 
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">

@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import Link from "next/link";
 import Container from "./Container";
+import { SITE } from "@/lib/site";
 
 /* ---------- Buttons ---------- */
 
@@ -202,13 +203,20 @@ export function ContactCTA({
           {description}
         </p>
         <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <ButtonLink href="/booking-inquiry/" variant="secondary">
-            예약 문의하기
-          </ButtonLink>
-          <ButtonLink href="/service-area/" variant="light">
-            지역별 가능 범위 확인하기
+          <a
+            href={SITE.contact.phoneTel}
+            className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-br from-gold-400 to-gold-600 px-6 py-3.5 text-base font-bold text-navy-900 shadow-glow transition-transform duration-300 ease-premium hover:-translate-y-0.5"
+          >
+            <span aria-hidden="true">📞</span>
+            전화 예약 {SITE.contact.phone}
+          </a>
+          <ButtonLink href="/booking-inquiry/" variant="light">
+            온라인 예약 문의
           </ButtonLink>
         </div>
+        <p className="mt-4 text-xs text-navy-100/70">
+          상담 시간 {SITE.contact.hours}
+        </p>
       </div>
     </section>
   );

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import StandardPage from "@/components/StandardPage";
 import { InternalLinkCard, SafetyNoticeBox } from "@/components/ui";
 import { pageMetadata } from "@/lib/seo";
+import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "사업자 정보 | 8 마사지",
@@ -45,8 +46,9 @@ export default function Page() {
         <li><strong>상호</strong> · 8 마사지 (운영 시 정식 상호로 기재)</li>
         <li><strong>대표자</strong> · (운영 시 기재)</li>
         <li><strong>사업자등록번호</strong> · (운영 시 기재)</li>
-        <li><strong>안내 채널</strong> · 고객센터 1:1 문의 및 예약 문의 페이지</li>
-        <li><strong>안내 시간</strong> · 매일 11:00 ~ 익일 02:00 (지역별 상이)</li>
+        <li><strong>전화 예약</strong> · <a href={SITE.contact.phoneTel}>{SITE.contact.phone}</a></li>
+        <li><strong>안내 채널</strong> · 전화 예약 및 고객센터 1:1 문의, 예약 문의 페이지</li>
+        <li><strong>안내 시간</strong> · {SITE.contact.hours}</li>
       </ul>
 
       <h2>안내 채널</h2>
