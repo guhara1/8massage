@@ -85,7 +85,11 @@ export function articleLd(input: {
     headline: input.title,
     description: input.description,
     mainEntityOfPage: absoluteUrl(input.path),
-    author: { "@type": "Organization", name: SITE.name },
+    author: {
+      "@type": "Organization",
+      name: SITE.author.name,
+      url: absoluteUrl("/about/brand/"),
+    },
     publisher: {
       "@type": "Organization",
       name: SITE.name,

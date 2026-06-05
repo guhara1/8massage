@@ -7,6 +7,7 @@ import SectionHeading from "./SectionHeading";
 import ArticleToc from "./ArticleToc";
 import { PageHero, Prose, ContactCTA, InternalLinkCard } from "./ui";
 import { faqLd, articleLd } from "@/lib/seo";
+import { SITE } from "@/lib/site";
 
 export type RelatedLink = { title: string; href: string; description: string };
 
@@ -51,19 +52,44 @@ export default function MagazineArticle({
       />
 
       <Container className="py-12">
-        <p className="mb-6 text-sm text-ink-700/80">
-          <span className="font-semibold text-gold-600">{category}</span>
-          <span className="mx-2" aria-hidden="true">·</span>
-          <time dateTime={datePublished} className="font-medium">
-            {datePublished.replace(/-/g, ".")} 발행
-          </time>
-        </p>
+        <div className="mb-8 flex max-w-3xl items-center gap-3 border-b border-navy-100 pb-6">
+          <span
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-navy-700 to-navy-900 text-base font-bold text-gold-300 ring-1 ring-white/10"
+            aria-hidden="true"
+          >
+            8
+          </span>
+          <div className="leading-tight">
+            <p className="text-sm font-semibold text-navy-900">
+              <span itemProp="author">{SITE.author.name}</span>
+            </p>
+            <p className="mt-0.5 text-xs text-ink-600">
+              <span className="font-medium text-gold-600">{category}</span>
+              <span className="mx-1.5" aria-hidden="true">·</span>
+              <time dateTime={datePublished}>{datePublished.replace(/-/g, ".")} 발행</time>
+            </p>
+          </div>
+        </div>
 
         <div className="max-w-3xl">
           <ArticleToc targetId="article-body" />
           <article id="article-body">
             <Prose>{children}</Prose>
           </article>
+
+          {/* 저자 소개 (E-E-A-T) */}
+          <div className="mt-12 flex gap-4 rounded-3xl border border-navy-100 bg-cream-100/60 p-6">
+            <span
+              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-navy-700 to-navy-900 text-lg font-bold text-gold-300 ring-1 ring-white/10"
+              aria-hidden="true"
+            >
+              8
+            </span>
+            <div>
+              <p className="text-sm font-bold text-navy-900">글 · {SITE.author.name}</p>
+              <p className="mt-1.5 text-sm leading-relaxed text-ink-700">{SITE.author.bio}</p>
+            </div>
+          </div>
         </div>
 
         {/* 관련 내부링크 */}
