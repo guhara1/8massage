@@ -4,6 +4,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import JsonLd from "@/components/JsonLd";
 import FAQAccordion from "@/components/FAQAccordion";
 import SectionHeading from "@/components/SectionHeading";
+import PriceSection from "@/components/PriceSection";
 import { PageHero, ContactCTA, SafetyNoticeBox, InternalLinkCard } from "@/components/ui";
 import { pageMetadata, faqLd } from "@/lib/seo";
 
@@ -190,6 +191,10 @@ export default function GyeonggiPage() {
               />
             </div>
           </aside>
+        </div>
+
+        <div className="mt-16">
+          <PriceSection />
         </div>
 
         <div className="mt-14">

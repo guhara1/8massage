@@ -3,6 +3,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import JsonLd from "@/components/JsonLd";
 import FAQAccordion from "@/components/FAQAccordion";
 import SectionHeading from "@/components/SectionHeading";
+import PriceSection from "@/components/PriceSection";
 import { PageHero, ContactCTA, SafetyNoticeBox, InternalLinkCard } from "@/components/ui";
 import { faqLd } from "@/lib/seo";
 import { Region, Area } from "@/lib/serviceAreas";
@@ -76,6 +77,10 @@ export default function AreaPage({ region, area }: { region: Region; area: Area 
               />
             </div>
           </aside>
+        </div>
+
+        <div className="mt-16">
+          <PriceSection />
         </div>
 
         <div className="mt-14">
