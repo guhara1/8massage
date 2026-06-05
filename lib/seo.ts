@@ -29,7 +29,10 @@ export function pageMetadata({
   return {
     title,
     description,
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      types: { "application/rss+xml": absoluteUrl("/rss.xml") },
+    },
     robots: index
       ? { index: true, follow: true }
       : { index: false, follow: true },
