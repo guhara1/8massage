@@ -39,6 +39,10 @@ export default function Page() {
         { title: "운영 원칙", href: "/about/policy/", description: "8 마사지가 지키는 기준" },
         { title: "고객 보호 정책", href: "/safety/customer-protection/", description: "안전한 이용 환경" },
       ]}
+      references={[
+        { label: "한국소비자원 — 소비자 피해 예방·상담 안내", href: "https://www.kca.go.kr" },
+        { label: "보건복지부 — 보건의료 관련 정보", href: "https://www.mohw.go.kr" },
+      ]}
     >
       <p>
         방문 케어를 찾다 보면 비슷해 보이는 안내가 많아, 어디가 신뢰할 수 있는 곳인지 가늠하기

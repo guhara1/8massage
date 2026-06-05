@@ -39,6 +39,10 @@ export default function Page() {
         { title: "고객 보호 정책", href: "/safety/customer-protection/", description: "안전한 이용 환경" },
         { title: "예약 문의", href: "/booking-inquiry/", description: "가능 여부 확인하기" },
       ]}
+      references={[
+        { label: "질병관리청 — 올바른 손위생·감염 예방 안내", href: "https://www.kdca.go.kr" },
+        { label: "보건복지부 — 보건·위생 정책 정보", href: "https://www.mohw.go.kr" },
+      ]}
     >
       <p>
         방문 케어는 익숙한 공간에서 이루어지는 만큼, 위생에 대한 신뢰가 편안함의 출발점이 됩니다.

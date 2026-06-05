@@ -11,6 +11,7 @@ import { faqLd, articleLd } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
 export type RelatedLink = { title: string; href: string; description: string };
+export type Reference = { label: string; href: string };
 
 export default function MagazineArticle({
   category,
@@ -22,6 +23,7 @@ export default function MagazineArticle({
   children,
   faqs,
   related,
+  references,
 }: {
   category: string;
   categoryHref: string;
@@ -32,6 +34,7 @@ export default function MagazineArticle({
   children: ReactNode;
   faqs: FAQ[];
   related: RelatedLink[];
+  references?: Reference[];
 }) {
   return (
     <>
@@ -101,6 +104,32 @@ export default function MagazineArticle({
             </div>
           </div>
         </div>
+
+        {/* 참고 자료 (외부 공공 출처) */}
+        {references && references.length > 0 ? (
+          <div className="mt-12 max-w-3xl">
+            <SectionHeading as="h2" title="참고 자료" />
+            <p className="mb-4 text-sm leading-relaxed text-ink-700">
+              위생·건강과 관련해 더 정확한 정보는 아래 공공기관 자료를 참고하시길 권합니다. 본
+              글은 일반적인 안내이며 의학적 조언을 대신하지 않습니다.
+            </p>
+            <ul className="space-y-2">
+              {references.map((r) => (
+                <li key={r.href}>
+                  <a
+                    href={r.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-start gap-1.5 text-sm font-medium text-navy-800 underline decoration-gold-400 decoration-1 underline-offset-4 hover:decoration-gold-600"
+                  >
+                    {r.label}
+                    <span aria-hidden="true" className="text-gold-500">↗</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
 
         {/* 관련 내부링크 */}
         <div className="mt-12">
